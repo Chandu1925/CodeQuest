@@ -1,0 +1,124 @@
+{% extends 'dashboard/index.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+  <div class="main-panel">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h1>Courses</h1>
+        </div>
+        <div class="row">
+            <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Add New Course</h4>
+                        <form id="courseForm" class="forms-sample">
+                            <div class="form-group">
+                                <label for="courseTitle">Course Title</label>
+                                <input type="text" class="form-control" id="courseTitle" placeholder="Enter course title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="courseDescription">Course Description</label>
+                                <textarea class="form-control" id="courseDescription" rows="4" placeholder="Enter course description" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="courseCategory">Category</label>
+                                <select class="form-select" id="courseCategory" required>
+                                    
+                                    {% for category in categories %}
+                                        <option value="{{ category.category_id }}">{{ category.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="courseInstructor">Instructor</label>
+                                <input type="text" class="form-control" id="courseInstructor" placeholder="Enter instructor name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="coursePrice">Price</label>
+                                <input type="number" class="form-control" id="coursePrice" placeholder="Enter course price" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="courseLevel">Course Level</label>
+                                <select class="form-select" id="courseLevel" required>
+                                    <option value="">Select level</option>
+                                    <option value="beginner">Beginner</option>
+                                    <option value="intermediate">Intermediate</option>
+                                    <option value="advanced">Advanced</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="courseStartDate">Start Date</label>
+                                <input type="date" class="form-control" id="courseStartDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="courseEndDate">End Date</label>
+                                <input type="date" class="form-control" id="courseEndDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="courseImage">Course Image</label>
+                                <input type="file" class="form-control" id="courseImage" accept="image/*">
+                            </div>
+                            <button type="button" class="btn btn-gradient-primary me-2" onclick="submitCourse()">Submit</button>
+                           
+                            <button type="reset" class="btn btn-light">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function submitCourse() {
+    var course_title = $('#courseTitle').val();
+    var course_description = $('#courseDescription').val();
+    var course_category = $('#courseCategory').val();
+    var course_instructor = $('#courseInstructor').val();
+    var course_price = $('#coursePrice').val();
+    var course_level = $('#courseLevel').val();
+    var course_start_date = $('#courseStartDate').val();
+    var course_end_date = $('#courseEndDate').val();
+
+    // Include the CSRF token from the hidden input in the template
+    // var csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+    $.ajax({
+        type: 'POST',
+        url: "{% url 'create_course_opportunity' %}",
+        headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                  },
+        data: {
+            "course_title": course_title,
+            "course_description": course_description,
+            "course_category": course_category,
+            "course_instructor": course_instructor,
+            "course_price": course_price,
+            "course_level": course_level,
+            "course_start_date": course_start_date,
+            "course_end_date": course_end_date,
+        },
+        success: function(data) {
+            if (data.success) {
+                alert('Course created successfully!');
+                $('#courseForm')[0].reset(); // Clear form
+            } else {
+                alert('Error: ' + data.error);
+            }
+        },
+        error: function(xhr, status, error) {
+            alert('An error occurred. Please try again.');
+        }
+    });
+}
+
+
+
+</script>
+
+</body>
+{% endblock content %}

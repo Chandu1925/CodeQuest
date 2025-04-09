@@ -1,0 +1,167 @@
+{% extends 'dashboard/index.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+  <div class="main-panel">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h1>Courses</h1>
+        </div>
+        <div class="row">
+            <div class="col-12 grcourse_id-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Add New Course</h4>
+                        <form course_id="courseForm" class="forms-sample">
+                            <input type="hidden" id="course_id" value="{{courses.course_id}}">
+                            <div class="form-group">
+                                <label for="course_title">Course Title</label>
+                                <input type="text" class="form-control" id="course_title" value="{{ courses.course_title}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="course_description">Course Description</label>
+                                <textarea class="form-control" id="course_description" rows="4">{{ courses.course_description}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="course_category">Category</label>
+                                <select class="form-select" id="course_category" name="course_category">
+                                    <option value="">Select Category</option>
+                                    {% for course_category in categories %}
+                                        <option value="{{ course_category.category_course_id }}" 
+                                                {% if course_category.category_course_id == course.course_category_course_id %}selected{% endif %}>
+                                            {{ course_category.name }}
+                                        </option>
+                                    {% endfor %}
+                                </select>                                
+                            </div>
+                            
+                            
+                            <div class="form-group">
+                                <label for="course_instructor">Instructor</label>
+                                <input type="text" class="form-control" id="course_instructor" value="{{ courses.course_instructor}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="course_price">Price</label>
+                                <input type="number" class="form-control" id="course_price" value="{{ courses.course_price}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="course_level">Course Level</label>
+                                <select class="form-select" id="course_level" required>
+                                    <option value="">Select level</option>
+                                    <option value="beginner" {% if courses.course_level == "beginner" %} selected {% endif %}>Beginner</option>
+                                    <option value="intermediate" {% if courses.course_level == "intermediate" %} selected {% endif %}>Intermediate</option>
+                                    <option value="advanced" {% if courses.course_level == "advanced" %} selected {% endif %}>Advanced</option>
+
+                                </select>
+                                
+                            </div>
+                            <div class="form-group">
+                                <label for="course_start_date">Start Date</label>
+                                <input type="date" class="form-control" id="course_start_date"   value="{{ courses.course_start_date|date:'Y-m-d' }}">
+                              
+                                
+                            </div>
+                            <div class="form-group">
+                                <label for="course_end_date">End Date</label>
+                                <input type="date" class="form-control" id="course_end_date" value="{{ courses.course_end_date|date:'Y-m-d' }}">
+                            </div>
+                
+                            <div class="form-group">
+                                <label for="course_image">Course Image</label>
+                                <input type="file" class="form-control" id="course_image" accept="image/*" value="{{ courses.course_image}}">
+                            </div>
+                            <button type="button" class="btn btn-gradient-primary me-2" onclick="submitCourse()">Submit</button>
+                           
+                            <button type="reset" class="btn btn-light">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // Global function to submit the Course form
+    function submitCourse() {
+        var course_id = $('#course_id').val();
+        var course_title = $('#course_title').val();
+        var course_description = $('#course_description').val();
+        var course_category = $('#course_category').val();
+        var course_instructor = $('#course_instructor').val();
+        var course_price = $('#course_price').val();
+        var course_level = $('#course_level').val();
+        var course_start_date = $('#course_start_date').val();
+        var course_end_date = $('#course_end_date').val();
+        var course_image = $('#course_image').val();
+    
+
+        console.log('course_id',course_id)
+        console.log("Form Data:", {
+            course_id, course_title, course_description, course_category, course_instructor, 
+            course_price, course_level, course_start_date, course_end_date, 
+            course_image
+        });
+
+        
+        if (confirm("Are you sure you want to submit this Course opportunity?")) {
+            submitForm(
+                course_id, course_title, course_description, course_category, course_instructor, 
+                course_price, course_level, course_start_date, course_end_date, 
+                course_image
+            );
+        }
+    }
+
+    function submitForm(
+        course_id, course_title, course_description, course_category, course_instructor, 
+        course_price, course_level, course_start_date, course_end_date, 
+        course_image
+    ) {
+        console.log("SubmitForm called with:", {
+            course_id, course_title, course_description, course_category, course_instructor, 
+            course_price, course_level, course_start_date, course_end_date, 
+            course_image
+        });
+
+        $.ajax({
+            url: "{% url 'update_course' %}",
+            type: "POST",
+            data: {
+                'course_id':course_id,
+                'course_title': course_title,
+                'course_description': course_description,
+                'course_category': course_category,
+                'course_instructor': course_instructor,
+                'course_price': course_price,
+                'course_level': course_level,
+                'course_start_date': course_start_date,
+                'course_end_date': course_end_date,
+                'course_image': course_image,
+            },
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}'
+            },
+            success: function (result) {
+                console.log("AJAX success callback:", result);
+                if (result['success']) {
+                    alert("Course details updated successfully.");
+                    console.log("Database Update Success:", result);
+                    window.location.href = "{% url 'course_view' %}";
+                } else {
+                    alert("Failed to update Course details: " + result['message']);
+                    console.log("Database Update Failed:", result);
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error("AJAX POST error:", error, "Response:", xhr.responseText);
+            }
+        });
+    }
+
+ 
+</script>
+</body>
+{% endblock content %}

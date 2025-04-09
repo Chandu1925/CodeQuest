@@ -1,0 +1,70 @@
+{% extends 'dashboard/index.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Placement Opportunities</h4>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th> ID </th>
+                            <th> Company Name </th>
+                            <th> Job Title </th>
+                            <th> Action </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for obj in userdata %}
+                            <tr>
+                                <td>{{ obj.id }}</td>
+                                <td>{{ obj.company_name }}</td>
+                                <td>{{ obj.job_title }}</td>
+                                <td style="display: flex; justify-content: center; align-items: center;">
+                                    <a href="#" class="btn btn-warning" id="edit-{{obj.id}}" onclick="edit_placement('{{obj.id}}')"><i class="fa fa-edit"></i></a>&nbsp;
+                                    <a href="#" class="btn btn-danger" onclick="delete_placement('{{obj.id}}')"><i class="fa fa-trash"></i></a>&nbsp;
+                                    <a href="{% url 'readplacement' obj.id  %}" class="btn btn-info" onclick="read_placement('{{obj.id}}')"><i class="fa fa-eye"></i></a>&nbsp;
+                                    
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function delete_placement(id) {
+            console.log("Deleting placement with ID:", id);
+            $.ajax({
+                type: "POST",
+                url: "{% url 'delete_placement' %}",
+                data: {
+                    "id": id,
+                    "csrfmiddlewaretoken": "{{ csrf_token }}"
+                },
+                success: function(data) {
+                    console.log("Delete success:", data);
+                    window.location.replace("/dashboard/viewplacement");
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error deleting placement:', error);
+                }
+            });
+        }
+
+        function edit_placement(id) {
+            var action = confirm("Are you sure you want to edit this placement?");
+            if (action !== false) {
+            window.location.href = "edit_placement/" + id;
+            }
+        }
+
+        
+    </script>
+</body>
+
+{% endblock content %}

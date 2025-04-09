@@ -1,0 +1,83 @@
+{% extends 'dashboard/index.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+  <div class="main-panel">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h1>Placements</h1>
+        </div>
+        <div class="row">
+            <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Read Placement Opportunity</h4>
+                        <form id="placementForm" class="forms-sample">
+                            <div class="form-group">
+                                <label for="companyName">Company Name</label>
+                                <input type="text" class="form-control" id="companyName" value="{{userdata.company_name}}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="jobTitle">Job Title</label>
+                                <input type="text" class="form-control" id="jobTitle" value="{{userdata.job_title}}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="jobDescription">Job Description</label>
+                                <textarea class="form-control" id="jobDescription" rows="4" disabled>{{userdata.job_description}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="jobLocation">Job Location</label>
+                                <input type="text" class="form-control" id="jobLocation" value="{{userdata.job_location}}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="employmentType">Employment Type</label>
+                                <select class="form-select" id="employmentType" required>
+                                    <option value="{{userdata.employment_type}}">Select employment type</option>
+                                    <option value="Full-Time" {% if userdata.employment_type == "Full-Time" %} selected {% endif %}>Full-Time</option>
+                                    <option value="Part-Time" {% if userdata.employment_type == "Part-Time" %} selected {% endif %}>Part-Time</option>
+                                    <option value="Internship" {% if userdata.employment_type == "Internship" %} selected {% endif %}>Internship</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="salaryRange">Salary Range</label>
+                                <input type="text" class="form-control" id="salaryRange" value="{{userdata.salary_range}}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="qualifications">Qualifications</label>
+                                <textarea class="form-control" id="qualifications" rows="4" disabled>{{userdata.qualifications}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="experienceRequired">Experience Required</label>
+                                <input type="text" class="form-control" id="experienceRequired" value="{{userdata.experience_required}}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="skillsRequired">Skills Required</label>
+                                <textarea class="form-control" id="skillsRequired" rows="4" disabled>{{userdata.skills_required}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="applicationDeadline">Application Deadline</label>
+                                <input type="date" class="form-control" id="applicationDeadline" value="{{ userdata.application_deadline|date:'Y-m-d'}}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">Contact Email</label>
+                                <input type="email" class="form-control" id="contactEmail" value="{{userdata.contact_email}}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="companyWebsite">Company Website</label>
+                                <input type="url" class="form-control" id="companyWebsite" value="{{userdata.company_website}}" disabled>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
+{% endblock content %}

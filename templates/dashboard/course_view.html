@@ -1,0 +1,92 @@
+{% extends 'dashboard/index.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+    
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Course Table</h4>
+               
+                </p>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Course Title</th>
+                            <th>Course Description</th>
+                            <th>Category</th>
+                            <th>Instructor</th>
+                            <th>Price</th>
+                            <th>Course Level</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Course Image</th>
+                            <th>Course Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in courses %}
+                        <tr style="color: #030000;">
+                            <td>{{ item.course_title }}</td>
+                            <td>{{ item.course_description }}</td>
+                            <td>{{ item.course_category }}</td>
+                            <td>{{ item.course_instructor }}</td>
+                            <td>{{ item.course_price }}</td>
+                            <td>{{ item.course_level }}</td>
+                            <td>{{ item.course_start_date }}</td>
+                            <td>{{ item.course_end_date }}</td>
+                            <td>
+                                {% if item.course_image %}
+                                    <img src="{{ item.course_image.url }}" alt="Course Image" style="width: 50px; height: 50px; object-fit: cover;">
+                                {% else %}
+                                    No Image
+                                {% endif %}
+                            </td>
+                            <td style="display: flex; justify-content: center; align-items: center;">
+                                <a href="#" class="btn btn-warning" id="edit-{{item.course_id}}" onclick="edit_course('{{item.course_id}}')">
+                                    <i class="fa fa-edit"></i>
+                                </a>&nbsp;
+                                <a href="#" class="btn btn-danger" onclick="delete_course('{{item.course_title}}')">
+                                    <i class="fa fa-trash"></i>
+                                </a>&nbsp;
+                                <a href="{% url 'read_course' item.course_id %}" class="btn btn-info">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        function delete_course(course_title) {
+            console.log(course_title);
+            $.ajax({
+                type: "POST",
+                url: "{% url 'delete_course' %}",
+                data: { "course_title": course_title },
+                success: function (data) {
+                    console.log(data);
+                    window.location.replace("/dashboard/course_view");
+                }
+
+            })
+        }
+
+
+        function edit_course(course_id) {
+            var action = confirm("Are you sure you want to edit this category?");
+            if (action !== false) {
+                window.location.href = "/dashboard/edit_course/" + course_id;
+            }
+        }
+
+    </script>
+
+</body>
+{% endblock content %}

@@ -1,0 +1,133 @@
+{% extends 'dashboard/index.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+  <div class="main-panel">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h1>Placements</h1>
+        </div>
+        <div class="row">
+            <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Add Placement Opportunity</h4>
+                        <form id="placementForm" class="forms-sample">
+                            <div class="form-group">
+                                <label for="companyName">Company Name</label>
+                                <input type="text" class="form-control" id="companyName" placeholder="Enter company name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="jobTitle">Job Title</label>
+                                <input type="text" class="form-control" id="jobTitle" placeholder="Enter job title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="jobDescription">Job Description</label>
+                                <textarea class="form-control" id="jobDescription" rows="4" placeholder="Enter job description" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="jobLocation">Job Location</label>
+                                <input type="text" class="form-control" id="jobLocation" placeholder="Enter job location" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="employmentType">Employment Type</label>
+                                <select class="form-select" id="employmentType" required>
+                                    <option value="">Select employment type</option>
+                                    <option value="Full-Time">Full-Time</option>
+                                    <option value="Part-Time">Part-Time</option>
+                                    <option value="Internship">Internship</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="salaryRange">Salary Range</label>
+                                <input type="text" class="form-control" id="salaryRange" placeholder="Enter salary range">
+                            </div>
+                            <div class="form-group">
+                                <label for="qualifications">Qualifications</label>
+                                <textarea class="form-control" id="qualifications" rows="4" placeholder="Enter required qualifications" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="experienceRequired">Experience Required</label>
+                                <input type="text" class="form-control" id="experienceRequired" placeholder="Enter experience required (e.g., 2+ years)">
+                            </div>
+                            <div class="form-group">
+                                <label for="skillsRequired">Skills Required</label>
+                                <textarea class="form-control" id="skillsRequired" rows="4" placeholder="Enter key skills required"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="applicationDeadline">Application Deadline</label>
+                                <input type="date" class="form-control" id="applicationDeadline" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">Contact Email</label>
+                                <input type="email" class="form-control" id="contactEmail" placeholder="Enter contact email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="companyWebsite">Company Website</label>
+                                <input type="url" class="form-control" id="companyWebsite" placeholder="Enter company website URL">
+                            </div>
+                            <button type="button" class="btn btn-gradient-primary me-2" onclick="submitPlacement()">Submit</button>
+                            <button type="reset" class="btn btn-light">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+  function submitPlacement() {
+    var company_name = $('#companyName').val();
+    var job_title = $('#jobTitle').val();
+    var job_description = $('#jobDescription').val();
+    var job_location = $('#jobLocation').val(); 
+    var employment_type = $('#employmentType').val();
+    var salary_range = $('#salaryRange').val();
+    var qualifications = $('#qualifications').val();
+    var experience_required = $('#experienceRequired').val();
+    var skills_required = $('#skillsRequired').val();
+    var application_deadline = $('#applicationDeadline').val();
+    var contact_email = $('#contactEmail').val();
+    var company_website = $('#companyWebsite').val();
+
+    $.ajax({
+        type: 'POST',
+        url: "{% url 'create_placement_opportunity' %}",
+        data: {
+            "company_name": company_name,
+            "job_title": job_title,
+            "job_description": job_description,
+            "job_location": job_location,
+            "employment_type": employment_type,
+            "salary_range": salary_range,
+            "qualifications": qualifications,
+            "experience_required": experience_required,
+            "skills_required": skills_required,
+            "application_deadline": application_deadline,
+            "contact_email": contact_email,
+            "company_website": company_website,
+            "csrfmiddlewaretoken": '{{ csrf_token }}' // Required for POST requests in Django
+        },
+        success: function(data) {
+            if (data.success) {
+                alert('Placement opportunity created successfully!');
+                window.location.replace("/dashboard/viewplacement");
+                $('#placementForm')[0].reset(); // Clear form
+            } else {
+                alert('Error: ' + data.error);
+            }
+        },
+        error: function(xhr, status, error) {
+            alert('An error occurred. Please try again.');
+        }
+    });
+}
+
+</script>
+
+
+</body>
+{% endblock content %}

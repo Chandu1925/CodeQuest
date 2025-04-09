@@ -1,0 +1,1110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Code Quest</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Consulting Website Template Free Download" name="keywords">
+    <meta content="Consulting Website Template Free Download" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/1blog.jpg' %}" rel="icon">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Oswald:wght@200;300;400&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'owlcarousel/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'owlcarousel/owl.theme.default.min.css' %}">
+
+
+    <!-- Template Stylesheet -->
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/landing.css' %}">
+</head>
+
+<body>
+    <!-- Top Bar Start -->
+    <div class="top-bar d-none d-md-block">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="top-bar-left">
+                        <div class="text">
+                            <i class="far fa-clock"></i>
+                            <h2>8:00 - 9:00</h2>
+                            <p>Mon - Fri</p>
+                        </div>
+                        <div class="text">
+                            <i class="fa fa-phone-alt"></i>
+                            <h2>+123 456 7890</h2>
+                            <p>For Appointment</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="top-bar-right">
+                        <div class="social">
+                            <a href=""><i class="fab fa-twitter"></i></a>
+                            <a href=""><i class="fab fa-facebook-f"></i></a>
+                            <a href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Top Bar End -->
+
+    <!-- Nav Bar Start -->
+    <div class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a href="{% url 'landing' %}" class="navbar-brand">Code Quest</a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto">
+                    <a href="{% url 'landing' %}" class="nav-item nav-link active">Home</a>
+                    <a href="#" class="nav-item nav-link">About</a>
+                    <a href="#" class="nav-item nav-link">Service</a>
+                    <a href="#" class="nav-item nav-link">Feature</a>
+                    <a href="#" class="nav-item nav-link">Advisor</a>
+                    <a href="#" class="nav-item nav-link">Review</a>
+                    
+                    <a href="#" class="nav-item nav-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Nav Bar End -->
+
+
+    <!-- Carousel Start -->
+    <div class="carousel">
+        <div class="container-fluid">
+            <div class="owl-carousel">
+                <div class="carousel-item">
+                    <div class="carousel-img">
+                        <img src="{% static 'img/carousel-1.jpg' %}" alt="Image">
+
+                    </div>
+                    <div class="carousel-text">
+                        <h1>Trust us with your IT, so you can concentrate on scaling your business.</h1>
+                        <p>
+                            Leave the complexities of technology to us, and enjoy seamless operations that support your
+                            business growth.
+                        </p>
+                        <div class="carousel-btn">
+                            <a class="btn" href=""><i class="fa fa-link"></i>Get Started</a>
+                            <a class="btn btn-play" data-toggle="modal"
+                                data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal"><i
+                                    class="fa fa-play"></i>Watch Video</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-img">
+                        <img src="{% static 'img/carousel-2.jpg' %}" alt="Image">
+                    </div>
+                    <div class="carousel-text">
+                        <h1>Your Success Our Achievement</h1>
+                        <p>
+                            Helping you succeed is our ultimate goal.
+                        </p>
+                        <div class="carousel-btn">
+                            <a class="btn" href=""><i class="fa fa-link"></i>Get Started</a>
+                            <a class="btn btn-play" data-toggle="modal"
+                                data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal"><i
+                                    class="fa fa-play"></i>Watch Video</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-img">
+                        <img src="{% static 'img/carousel-3.jpg' %}" alt="Image">
+                    </div>
+                    <div class="carousel-text">
+                        <h1>Your Business Our Effort</h1>
+                        <p>
+                            Our dedication drives your business towards greater success.
+                        </p>
+                        <div class="carousel-btn">
+                            <a class="btn" href=""><i class="fa fa-link"></i>Get Started</a>
+                            <a class="btn btn-play" data-toggle="modal"
+                                data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal"><i
+                                    class="fa fa-play"></i>Watch Video</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+    <!-- Video Modal Start-->
+    <div class="modal fade" id="videoModal" tablanding="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <!-- 16:9 aspect ratio -->
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always"
+                            allow="autoplay"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Video Modal End -->
+
+
+    <!-- Fact Start -->
+    <div class="fact">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-6">
+                    <div class="fact-item">
+                        <img src="{% static 'img/cost.svg' %}" alt="Icon">
+                        <h2>Cost-effectiveness</h2>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="fact-item">
+                        <img src="{% static 'img/tech.svg' %}" alt="Icon">
+                        <h2>Innovative Technology</h2>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="fact-item">
+                        <img src="{% static 'img/industry.svg' %}" alt="Icon">
+                        <h2>Industry Expertise</h2>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="fact-item">
+                        <img src="{% static 'img/scalability.svg' %}" alt="Icon">
+                        <h2>Scalability</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fact Start -->
+
+
+    <!-- About Start -->
+    <div class="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="about-img">
+                        <div class="about-img-1">
+                            <img src="{% static 'img/about-2.jpg' %}" alt="Image">
+                        </div>
+                        <div class="about-img-2">
+                            <img src="{% static 'img/about-1.jpg' %}" alt="Image">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="section-header">
+                        <p>Learn About Us</p>
+                        <h2>25 Years Experience</h2>
+                    </div>
+                    <div class="about-text">
+                        <p>
+                            At Code Quest, we provide innovative IT solutions to individuals, small businesses, and
+                            enterprises. With years of experience, we resolve complex IT challenges and deliver custom
+                            software solutions that help businesses scale and stay competitive in a fast-evolving
+                            digital landscape.
+                        </p>
+                        <p>
+                            With a strong focus on quality, security, and customer-centric service, Code Quest is
+                            committed to providing cutting-edge IT solutions that meet the diverse needs of businesses
+                            globally. Partner with us and experience the difference our expertise makes in transforming
+                            your IT challenges into opportunities for success.
+                        </p>
+                        <a class="btn" href="">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Service Start -->
+    <div class="service">
+        <div class="container">
+            <div class="section-header">
+                <p>Consulting Services</p>
+                <h2>Our Best Consulting Services</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <img src="{% static 'img/Salesforce.png' %}" alt="Icon">
+                        <h3>Salesforce CRM</h3>
+                        <p>
+                            Learn to manage customer relationships and automate sales with Salesforce CRM for business
+                            growth.
+                        </p>
+                        <a href="">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <img src="{% static 'img/crm.jfif' %}" alt="Icon">
+                        <h3>MS Dynamics CRM</h3>
+                        <p>
+                            Master MS Dynamics CRM to streamline customer management, automate sales, and boost business
+                            efficiency.
+                        </p>
+                        <a href="">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <img src="{% static 'img/web.jfif' %}" alt="Icon">
+                        <h3>Web Application</h3>
+                        <p>
+                            Learn to build, deploy, and manage dynamic web applications for seamless user experiences
+                            and business growth.
+                        </p>
+                        <a href="">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <img src="{% static 'img/mobile.jfif' %}" alt="Icon">
+                        <h3>Mobile Development</h3>
+                        <p>
+                            Master mobile development to create responsive, user-friendly apps for iOS and Android
+                            platforms.
+                        </p>
+                        <a href="">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <img src="{% static 'img/bussiness.png' %}" alt="Icon">
+                        <h3>Online Business</h3>
+                        <p>
+                            Build the skills to create, manage, and scale a thriving online business in the digital
+                            world.
+                        </p>
+                        <a href="">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <img src="{% static 'img/desktop.png' %}" alt="Icon">
+                        <h3>Desktop Application</h3>
+                        <p>
+                            Develop robust desktop applications to deliver seamless performance and improve user
+                            engagement.
+                        </p>
+                        <a href="">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <img src="{% static 'img/technology.png' %}" alt="Icon">
+                        <h3>IOT Solutions</h3>
+                        <p>
+                            Explore IoT solutions to build smart devices and systems that improve efficiency and enable
+                            automation.
+                        </p>
+                        <a href="">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <img src="{% static 'img/product.png' %}" alt="Icon">
+                        <h3>Product Engineering</h3>
+                        <p>
+                            Learn product engineering to turn concepts into innovative, reliable, and market-ready
+                            solutions.
+                        </p>
+                        <a href="">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <img src="{% static 'img/ecm.png' %}" alt="Icon">
+                        <h3>E-Commerce Site</h3>
+                        <p>
+                            Build and optimize e-commerce sites to create seamless shopping experiences and drive online
+                            sales.
+                        </p>
+                        <a href="">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+
+
+    <!-- Solving Challenges -->
+
+    <div class="main-div" style="background-image: url('{% static 'img/back.jpg' %}'); background-size: cover;">
+        <h2>Solving IT challenges in every industry, every day</h2>
+        <div class="small-divs">
+            <div class="small-div">Marketing Management</div>
+            <div class="small-div">Logistics, Travel and Hospitality</div>
+            <div class="small-div">Online Education Industry</div>
+            <div class="small-div">Healthcare</div>
+            <div class="small-div">Finance</div>
+            <div class="small-div">Entertainment</div>
+        </div>
+    </div>
+
+
+    <!-- Feature Start -->
+    <div class="feature">
+        <div class="container">
+            <div class="row align-items-end">
+                <div class="col-md-6">
+                    <div class="feature-img">
+                        <img src="{% static 'img/business-man.png' %}" alt="Image">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="section-header">
+                        <p>Our Feature</p>
+                        <h2>Why Choose Us?</h2>
+                    </div>
+                    <p>
+                        Choose us for our dedication to delivering innovative, customized solutions that meet your
+                        unique business needs. With a team of experienced professionals, we prioritize your success by
+                        offering expert support and cutting-edge technology. Our client-focused approach ensures that
+                        every project is handled with attention to detail and a commitment to exceeding expectations.
+                        Whether you're looking to scale, streamline operations, or enhance your digital presence, we are
+                        here to drive long-term growth and ensure your business stays ahead of the competition.
+                    </p>
+                    <div class="row counters">
+                        <div class="col-6">
+                            <i class="fa fa-user"></i>
+                            <div class="counters-text">
+                                <h2 data-toggle="counter-up">100</h2>
+                                <p>Our Staffs</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <i class="fa fa-users"></i>
+                            <div class="counters-text">
+                                <h2 data-toggle="counter-up">200</h2>
+                                <p>Our Clients</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <i class="fa fa-check"></i>
+                            <div class="counters-text">
+                                <h2 data-toggle="counter-up">300</h2>
+                                <p>Completed Projects</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <i class="fa fa-running"></i>
+                            <div class="counters-text">
+                                <h2 data-toggle="counter-up">400</h2>
+                                <p>Running Projects</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature End -->
+
+
+    <!-- Testimonial Start -->
+    <div class="testimonial">
+        <div class="container">
+            <div class="section-header">
+                <p>Testimonial Carousel</p>
+                <h2>100% Positive Customer Reviews</h2>
+            </div>
+            <div class="owl-carousel testimonials-carousel">
+                <div class="testimonial-item">
+                    <img src="{% static 'img/testimonial-1.jpg' %}" alt="Image">
+                    <p>
+                        Code Quest transformed our business with tailored IT solutions, improving efficiency and growth.
+                        Highly recommend!
+                    </p>
+                    <h2>John Doe</h2>
+                    <h3>CEO of Tech Solutions Inc.</h3>
+                </div>
+                <div class="testimonial-item">
+                    <img src="{% static 'img/testimonial-2.jpg' %}" alt="Image">
+                    <p>
+                        Code Quest exceeded our expectations with their responsive, professional team and innovative
+                        software solutions.
+                    </p>
+                    <h2>James Smith</h2>
+                    <h3>CTO of Digital Innovations Ltd</h3>
+                </div>
+                <div class="testimonial-item">
+                    <img src="{% static 'img/testimonial-3.jpg' %}" alt="Image">
+                    <p>
+                        Working with Code Quest helped us scale and optimize processes efficiently. We’re thrilled with
+                        the results.
+                    </p>
+                    <h2>Michael Johnson</h2>
+                    <h3>Operations Manager at GreenTech Enterprises</h3>
+                </div>
+                <div class="testimonial-item">
+                    <img src="{% static 'img/testimonial-4.jpg' %}" alt="Image">
+                    <p>
+                        Code Quest modernized our IT infrastructure with exceptional service and reliable, impactful
+                        solutions
+                    </p>
+                    <h2>David Brown</h2>
+                    <h3>Marketing Director of FutureWave Solutions</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+
+    <!-- Team Start -->
+    <div class="team">
+        <div class="container">
+            <div class="section-header">
+                <p>Meet Our Advisors</p>
+                <h2>Our Professional Consulting Team</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img src="{% static 'img/team-1.jpg' %}" alt="Team Image">
+                        </div>
+                        <div class="team-text">
+                            <h2>Donald John</h2>
+                            <p>Founder & CEO</p>
+                            <div class="team-social">
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href=""><i class="fab fa-facebook-f"></i></a>
+                                <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img src="{% static 'img/team-2.jpg' %}" alt="Team Image">
+                        </div>
+                        <div class="team-text">
+                            <h2>Adam Phillips</h2>
+                            <p>Chef Executive</p>
+                            <div class="team-social">
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href=""><i class="fab fa-facebook-f"></i></a>
+                                <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img src="{% static 'img/team-3.jpg' %}" alt="Team Image">
+                        </div>
+                        <div class="team-text">
+                            <h2>Thomas Olsen</h2>
+                            <p>Chef Advisor</p>
+                            <div class="team-social">
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href=""><i class="fab fa-facebook-f"></i></a>
+                                <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img src="{% static 'img/team-4.jpg' %}" alt="Team Image">
+                        </div>
+                        <div class="team-text">
+                            <h2>James Alien</h2>
+                            <p>Advisor</p>
+                            <div class="team-social">
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href=""><i class="fab fa-facebook-f"></i></a>
+                                <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+    <!-- project -->
+
+    <section class="projects-section">
+        <h1>Our Latest Projects</h1>
+        <div class="domains">
+            <button class="domain-btn" data-domain="salesforce">Salesforce CRM</button>
+            <button class="domain-btn" data-domain="dynamics">MS Dynamics CRM</button>
+            <button class="domain-btn" data-domain="web">Web Application</button>
+            <button class="domain-btn" data-domain="mobile">Mobile Development</button>
+            <button class="domain-btn" data-domain="desktop">Desktop Application</button>
+            <button class="domain-btn" data-domain="enterprise">Enterprise Solution</button>
+            <button class="domain-btn" data-domain="product">Product Engineering</button>
+            <button class="domain-btn" data-domain="ecommerce">E-Commerce Site</button>
+            <button class="domain-btn" data-domain="iot">IoT Solutions</button>
+        </div>
+        <div class="projects-container">
+            <!-- Salesforce Projects -->
+            <div class="project-group" id="salesforce">
+                <div class="project-card">
+                    <img src="{% static 'img/Salesforce.png' %}" alt="Salesforce Sales Cloud" class="project-image" />
+                    <h3>Salesforce Sales Cloud Implementation</h3>
+                    <p>Streamlined the sales lifecycle with automated lead management and reporting dashboards.</p>
+                </div>
+                <div class="project-card">
+                    <img src="{% static 'img/salesforce1.webp' %}" alt="Service Cloud Customization"
+                        class="project-image" />
+                    <h3>Service Cloud Customization</h3>
+                    <p>Tailored case management system with real-time support chat and AI suggestions.</p>
+                </div>
+            </div>
+            <!-- MS Dynamics Projects -->
+            <div class="project-group" id="dynamics">
+                <div class="project-card">
+                    <img src="{% static 'img/dynamics1.jpg' %}" alt="Customer Engagement Platform"
+                        class="project-image" />
+                    <h3>Customer Engagement Platform</h3>
+                    <p>Unified customer data for personalized marketing campaigns.</p>
+                </div>
+                <div class="project-card">
+                    <img src="{% static 'img/dynamics2.jpg' %}" alt="Field Service Automation" class="project-image" />
+                    <h3>Field Service Automation</h3>
+                    <p>End-to-end solution for scheduling and monitoring field agents.</p>
+                </div>
+            </div>
+            <!-- Web Application Projects -->
+            <div class="project-group" id="web">
+                <div class="project-card">
+                    <img src="{% static 'img/web1.jpg' %}" alt="E-Learning Platform" class="project-image" />
+                    <h3>E-Learning Platform</h3>
+                    <p>Interactive portal for online courses with quizzes and certificates.</p>
+                </div>
+                <div class="project-card">
+                    <img src="{% static 'img/web2.jpeg' %}" alt="Event Management Portal" class="project-image" />
+                    <h3>Event Management Portal</h3>
+                    <p>Responsive platform for registrations, ticket sales, and attendee tracking.</p>
+                </div>
+            </div>
+            <!-- Mobile Development Projects -->
+            <div class="project-group" id="mobile">
+                <div class="project-card">
+                    <img src="{% static 'img/mobile1.jpg' %}" alt="Health & Fitness App" class="project-image" />
+                    <h3>Health & Fitness App</h3>
+                    <p>Cross-platform app with workout tracking and wearable integration.</p>
+                </div>
+                <div class="project-card">
+                    <img src="{% static 'img/mobile2.jpg' %}" alt="Food Delivery App" class="project-image" />
+                    <h3>Food Delivery App</h3>
+                    <p>Location-based app with real-time tracking and secure payments.</p>
+                </div>
+            </div>
+            <!-- Desktop Application Projects -->
+            <div class="project-group" id="desktop">
+                <div class="project-card">
+                    <img src="{% static 'img/desktop1.jpg' %}" alt="Inventory Management System"
+                        class="project-image" />
+                    <h3>Inventory Management System</h3>
+                    <p>Windows application to monitor stock levels and automate reordering.</p>
+                </div>
+                <div class="project-card">
+                    <img src="{% static 'img/desktop2.jpg' %}" alt="Photo Editing Tool" class="project-image" />
+                    <h3>Photo Editing Tool</h3>
+                    <p>Desktop app with customizable filters and batch processing.</p>
+                </div>
+            </div>
+            <!-- Enterprise Solution Projects -->
+            <div class="project-group" id="enterprise">
+                <div class="project-card">
+                    <img src="{% static 'img/enterprise1.jpg' %}" alt="Custom ERP System" class="project-image" />
+                    <h3>Custom ERP System</h3>
+                    <p>Scalable ERP for finance, production, and supply chain management.</p>
+                </div>
+                <div class="project-card">
+                    <img src="{% static 'img/enterprise2.jpg' %}" alt="HR Management Platform" class="project-image" />
+                    <h3>HR Management Platform</h3>
+                    <p>HRMS to handle employee records, payroll, and performance tracking.</p>
+                </div>
+            </div>
+            <!-- Product Engineering Projects -->
+            <div class="project-group" id="product">
+                <div class="project-card">
+                    <img src="{% static 'img/product1.jpg' %}" alt="SaaS Task Management Tool" class="project-image" />
+                    <h3>SaaS Task Management Tool</h3>
+                    <p>Cloud-based platform for task allocation and collaborative planning.</p>
+                </div>
+                <div class="project-card">
+                    <img src="{% static 'img/product2.jpg' %}" alt="AI Chatbot Development" class="project-image" />
+                    <h3>AI Chatbot Development</h3>
+                    <p>Intelligent chatbot for instant customer support.</p>
+                </div>
+            </div>
+            <!-- E-Commerce Site Projects -->
+            <div class="project-group" id="ecommerce">
+                <div class="project-card">
+                    <img src="{% static 'img/ecommerce1.jpg' %}" alt="Multi-Vendor Marketplace" class="project-image" />
+                    <h3>Multi-Vendor Marketplace</h3>
+                    <p>E-commerce site with product catalogs and commission management.</p>
+                </div>
+                <div class="project-card">
+                    <img src="{% static 'img/ecommerce2.jpg' %}" alt="Personalized Shopping Experience"
+                        class="project-image" />
+                    <h3>Personalized Shopping Experience</h3>
+                    <p>AI-driven recommendation engine and dynamic pricing for a retail site.</p>
+                </div>
+            </div>
+            <!-- IoT Solutions Projects -->
+            <div class="project-group" id="iot">
+                <div class="project-card">
+                    <img src="{% static 'img/iot1.jpg' %}" alt= "Smart Home System" class="project-image" />
+                    <h3>Smart Home System</h3>
+                    <p>IoT-enabled system for home automation with mobile control.</p>
+                </div>
+                <div class="project-card">
+                    <img src="{% static 'img/iot2.jpg' %}" alt="Industrial Equipment Monitoring"
+                        class="project-image" />
+                    <h3>Industrial Equipment Monitoring</h3>
+                    <p>Predictive maintenance with real-time equipment tracking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Start -->
+    <div class="contact">
+        <div class="container">
+            <div class="section-header">
+                <p>Get In Touch</p>
+                <h2>Get In Touch For Any Query</h2>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-md-5">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fa fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Our Head Office</h3>
+                            <p>123 Street, New York, USA</p>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fa fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Call for Help</h3>
+                            <p>+012 345 6789</p>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email for Information</h3>
+                            <p>info@example.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="contact-form">
+                        <div id="success"></div>
+                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                            <div class="control-group">
+                                <input type="text" class="form-control" id="name" placeholder="Your Name"
+                                    required="required" data-validation-required-message="Please enter your name" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="email" class="form-control" id="email" placeholder="Your Email"
+                                    required="required" data-validation-required-message="Please enter your email" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="text" class="form-control" id="subject" placeholder="Subject"
+                                    required="required" data-validation-required-message="Please enter a subject" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <textarea class="form-control" id="message" placeholder="Message" required="required"
+                                    data-validation-required-message="Please enter your message"></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div>
+                                <button class="btn" type="submit" id="sendMessageButton">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+
+    <!-- Blog Start -->
+    <div class="blog">
+        <div class="container">
+            <div class="section-header">
+                <p>Consulting Blog</p>
+                <h2>Latest From Our Consulting Blog</h2>
+            </div>
+            <div class="owl-carousel blog-carousel">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="{% static 'img/custom.png' %}" alt="Blog">
+                    </div>
+                    <div class="blog-content">
+                        <h4 class="blog-title">How Custom Software Development Companies Use Prototyping and MVPs to
+                            Reduce Risk</h4>
+                        <div class="blog-meta">
+                            <i class="fa fa-list-alt"></i>
+                            <a href="">Category</a>
+                            <i class="fa fa-calendar-alt"></i>
+                            <p>01-Jan-2045</p>
+                        </div>
+                        <div class="blog-text">
+                            <p>
+                                Custom software companies use prototyping and MVPs to validate ideas early, gather user
+                                feedback, and focus on core features. This reduces risk and ensures the final product
+                                meets market needs.
+                            </p>
+                            <a class="btn" href="">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="{% static 'img/angular.jpg' %}" alt="Blog">
+                    </div>
+                    <div class="blog-content">
+                        <h4 class="blog-title">Why Angular Development Services Are Perfect for Complex, Data-Driven
+                            Applications</h4>
+                        <div class="blog-meta">
+                            <i class="fa fa-list-alt"></i>
+                            <a href="">Category</a>
+                            <i class="fa fa-calendar-alt"></i>
+                            <p>01-Jan-2045</p>
+                        </div>
+                        <div class="blog-text">
+                            <p>
+                                Angular is perfect for complex, data-driven applications due to its efficient data
+                                binding and scalability. Its component-based architecture ensures high performance and
+                                maintainability in large-scale projects.
+                            </p>
+                            <a class="btn" href="">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="{% static 'img/ai.jpg' %}" alt="Blog">
+                    </div>
+                    <div class="blog-content">
+                        <h4 class="blog-title">How Artificial Intelligence is Influencing Web Application Development
+                        </h4>
+                        <div class="blog-meta">
+                            <i class="fa fa-list-alt"></i>
+                            <a href="">Category</a>
+                            <i class="fa fa-calendar-alt"></i>
+                            <p>01-Jan-2045</p>
+                        </div>
+                        <div class="blog-text">
+                            <p>
+                                AI improves web applications by offering personalized content and intelligent features
+                                like chatbots. It also enhances efficiency through predictive analytics and real-time
+                                adaptation to user needs.
+                            </p>
+                            <a class="btn" href="">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+
+    <!-- FAq's section -->
+
+    <section class="faq-section">
+        <div class="faq-heading">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-img">
+            <img class="imga" src="{% static 'img/faq.jpg' %}" alt="faq">
+        </div>
+        <div class="faq">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h5>What is Custom Software Development?</h5>
+                </div>
+                <div class="faq-answer">
+                    <ul>
+                        <li>Tailored to your business needs.</li>
+                        <li>Developed for specific requirements.</li>
+                        <li>Can be scalable as the business grows.</li>
+                        <li>Provides better integration with systems.</li>
+                        <li>Improves overall business efficiency.</li>
+                        <li>Offers a competitive edge in the market.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h5>How does Cloud Computing benefit businesses?</h5>
+                </div>
+                <div class="faq-answer">
+                    <ul>
+                        <li>Reduces infrastructure costs.</li>
+                        <li>Improves data security and accessibility.</li>
+                        <li>Supports remote work and collaboration.</li>
+                        <li>Provides scalable resources.</li>
+                        <li>Enables automatic updates.</li>
+                        <li>Enhances disaster recovery options.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h5>What is the importance of SEO for websites?</h5>
+                </div>
+                <div class="faq-answer">
+                    <ul>
+                        <li>Improves website visibility on search engines.</li>
+                        <li>Drives organic traffic to your website.</li>
+                        <li>Boosts credibility and trustworthiness.</li>
+                        <li>Enhances user experience and website design.</li>
+                        <li>Increases conversion rates.</li>
+                        <li>Helps in local and global reach.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h5>How does Artificial Intelligence improve business operations?</h5>
+                </div>
+                <div class="faq-answer">
+                    <ul>
+                        <li>Automates repetitive tasks.</li>
+                        <li>Enhances decision-making with data analysis.</li>
+                        <li>Improves customer service with chatbots.</li>
+                        <li>Optimizes supply chain management.</li>
+                        <li>Detects and prevents fraud.</li>
+                        <li>Personalizes marketing efforts.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h5>What is the role of Mobile Development in business growth?</h5>
+                </div>
+                <div class="faq-answer">
+                    <ul>
+                        <li>Provides better accessibility to customers.</li>
+                        <li>Increases engagement through apps.</li>
+                        <li>Supports mobile payments and transactions.</li>
+                        <li>Enhances brand visibility.</li>
+                        <li>Allows businesses to operate remotely.</li>
+                        <li>Improves customer satisfaction with convenience.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Start -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="footer-contact">
+                                <h2>Our Head Office</h2>
+                                <p><i class="fa fa-map-marker-alt"></i>123 Street, New York, USA</p>
+                                <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
+                                <p><i class="fa fa-envelope"></i>info@example.com</p>
+                                <div class="footer-social">
+                                    <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a href=""><i class="fab fa-youtube"></i></a>
+                                    <a href=""><i class="fab fa-instagram"></i></a>
+                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="footer-link">
+                                <h2>Quick Links</h2>
+                                <a href="">Terms of use</a>
+                                <a href="">Privacy policy</a>
+                                <a href="">Cookies</a>
+                                <a href="">Help</a>
+                                <a href="">FAQ's</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="footer-newsletter">
+                        <h2>Newsletter</h2>
+                        <p>
+                            Subscribe to our newsletter now!
+                        </p>
+                        <div class="form">
+                            <input class="form-control" placeholder="Email goes here">
+                            <button class="btn">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container copyright">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; <a href="#">Code Quest</a>, All Right Reserved.</p>
+                </div>
+                <div class="col-md-6">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    <!-- faq's script -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function () {
+                const parent = this.parentElement; // Get the parent .faq-item
+                const answer = parent.querySelector('.faq-answer'); // Get the .faq-answer of the clicked question
+
+                // Toggle the 'active' class to show or hide the answer with transition
+                parent.classList.toggle('active');
+
+                // If answer is open, collapse it, else open it with smooth animation
+                if (parent.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + "px"; // Set maxHeight to actual content height
+                } else {
+                    answer.style.maxHeight = "0"; // Collapse the answer
+                }
+            });
+        });
+
+        // project script
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get all domain buttons
+            const domainButtons = document.querySelectorAll('.domain-btn');
+
+            // Get all project groups
+            const projectGroups = document.querySelectorAll('.project-group');
+
+            // Function to hide all project groups
+            function hideAllProjects() {
+                projectGroups.forEach(group => {
+                    group.style.display = 'none'; // Hide all project groups
+                });
+            }
+
+            // Function to show the selected domain's projects
+            function showProjects(domain) {
+                hideAllProjects(); // Hide all projects first
+                const activeProjectGroup = document.getElementById(domain);
+                if (activeProjectGroup) {
+                    activeProjectGroup.style.display = 'block'; // Show the relevant project group
+                }
+            }
+
+            // Set up event listeners for each domain button
+            domainButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const domain = this.getAttribute('data-domain'); // Get the domain from the button
+                    showProjects(domain); // Show the projects for that domain
+                });
+            });
+
+            // Initially, hide all project groups
+            hideAllProjects();
+        });
+
+    </script>
+
+
+
+
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
+    <script src="{% static 'mail/contact.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'owlcarousel/owl.carousel.min.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                items: 1,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                nav: true,
+                dots: true
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+{% extends 'dashboard/index.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+  <div class="main-panel">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h1>Placements</h1>
+        </div>
+        <div class="row">
+            <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Updat
+                            e Placement Opportunity</h4>
+                        <form id="placementForm" class="forms-sample">
+                            <input type="hidden" id="placementId" value="{{userdata.id}}">
+
+                            <div class="form-group">
+                                <label for="companyName">Company Name</label>
+                                <input type="text" class="form-control" id="companyName" value="{{userdata.company_name}}">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="jobTitle">Job Title</label>
+                                <input type="text" class="form-control" id="jobTitle" value="{{userdata.job_title}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="jobDescription">Job Description</label>
+                                <textarea class="form-control" id="jobDescription" rows="4">{{userdata.job_description}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="jobLocation">Job Location</label>
+                                <input type="text" class="form-control" id="jobLocation" value="{{userdata.job_location}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="employmentType">Employment Type</label>
+                                <select class="form-select" id="employmentType" required>
+                                    <option value="">Select employment type</option>
+                                    <option value="Full-Time" {% if userdata.employment_type == "Full-Time" %} selected {% endif %}>Full-Time</option>
+                                    <option value="Part-Time" {% if userdata.employment_type == "Part-Time" %} selected {% endif %}>Part-Time</option>
+                                    <option value="Internship" {% if userdata.employment_type == "Internship" %} selected {% endif %}>Internship</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="salaryRange">Salary Range</label>
+                                <input type="text" class="form-control" id="salaryRange" value="{{userdata.salary_range}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="qualifications">Qualifications</label>
+                                <textarea class="form-control" id="qualifications" rows="4">{{userdata.qualifications}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="experienceRequired">Experience Required</label>
+                                <input type="text" class="form-control" id="experienceRequired" value="{{userdata.experience_required}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="skillsRequired">Skills Required</label>
+                                <textarea class="form-control" id="skillsRequired" rows="4">{{userdata.skills_required}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="applicationDeadline">Application Deadline</label>
+                                <input type="date" class="form-control" id="applicationDeadline" value="{{ userdata.application_deadline|date:'Y-m-d'}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">Contact Email</label>
+                                <input type="email" class="form-control" id="contactEmail" value="{{userdata.contact_email}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="companyWebsite">Company Website</label>
+                                <input type="url" class="form-control" id="companyWebsite" value="{{userdata.company_website}}">
+                            </div>
+                            <button type="button" class="btn btn-gradient-primary me-2" id="save_placement">Submit</button>
+                            <button type="reset" class="btn btn-light">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    // Global function to submit the placement form
+    function submitPlacement() {
+        var id = $('#placementId').val();
+        var companyName = $('#companyName').val().trim();
+        var jobTitle = $('#jobTitle').val().trim();
+        var jobDescription = $('#jobDescription').val().trim();
+        var jobLocation = $('#jobLocation').val().trim();
+        var employmentType = $('#employmentType').val();
+        var salaryRange = $('#salaryRange').val().trim();
+        var qualifications = $('#qualifications').val().trim();
+        var experienceRequired = $('#experienceRequired').val().trim();
+        var skillsRequired = $('#skillsRequired').val().trim();
+        var applicationDeadline = $('#applicationDeadline').val().trim();
+        var contactEmail = $('#contactEmail').val().trim();
+        var companyWebsite = $('#companyWebsite').val().trim();
+
+        console.log('id',id)
+        console.log("Form Data:", {
+            companyName, jobTitle, jobDescription, jobLocation, 
+            employmentType, salaryRange, qualifications, experienceRequired, 
+            skillsRequired, applicationDeadline, contactEmail, companyWebsite
+        });
+
+        if (!companyName) {
+            alert("Please enter the company name.");
+            return;
+        }
+
+        if (!jobTitle) {
+            alert("Please enter the job title.");
+            return;
+        }
+
+        if (!employmentType) {
+            alert("Please select the employment type.");
+            return;
+        }
+
+        if (confirm("Are you sure you want to submit this placement opportunity?")) {
+            submitForm(
+                id,companyName, jobTitle, jobDescription, jobLocation, 
+                employmentType, salaryRange, qualifications, experienceRequired, 
+                skillsRequired, applicationDeadline, contactEmail, companyWebsite
+            );
+        }
+    }
+
+    function submitForm(
+        id, companyName, jobTitle, jobDescription, jobLocation, 
+        employmentType, salaryRange, qualifications, experienceRequired, 
+        skillsRequired, applicationDeadline, contactEmail, companyWebsite
+    ) {
+        console.log("SubmitForm called with:", {
+            id, companyName, jobTitle, jobDescription, jobLocation, 
+            employmentType, salaryRange, qualifications, experienceRequired, 
+            skillsRequired, applicationDeadline, contactEmail, companyWebsite
+        });
+
+        $.ajax({
+            url: "{% url 'update_placement' %}",
+            type: "POST",
+            data: {
+                'id':id,
+                'company_name': companyName,
+                'job_title': jobTitle,
+                'job_description': jobDescription,
+                'job_location': jobLocation,
+                'employment_type': employmentType,
+                'salary_range': salaryRange,
+                'qualifications': qualifications,
+                'experience_required': experienceRequired,
+                'skills_required': skillsRequired,
+                'application_deadline': applicationDeadline,
+                'contact_email': contactEmail,
+                'company_website': companyWebsite,
+            },
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}'
+            },
+            success: function (result) {
+                console.log("AJAX success callback:", result);
+                if (result['success']) {
+                    alert("Placement details updated successfully.");
+                    console.log("Database Update Success:", result);
+                    window.location.href = "{% url 'viewplacement' %}";
+                } else {
+                    alert("Failed to update placement details: " + result['message']);
+                    console.log("Database Update Failed:", result);
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error("AJAX POST error:", error, "Response:", xhr.responseText);
+            }
+        });
+    }
+
+    // Attach event listener to the submit button
+    $(document).on('click', '#save_placement', function () {
+        submitPlacement();
+    });
+</script>
+
+
+
+
+</body>
+{% endblock content %}

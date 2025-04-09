@@ -1,0 +1,53 @@
+{% extends 'dashboard/index.html' %}
+{% load static %}
+{% block content %}
+
+
+<body>
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="page-header">
+                <h1>Category
+
+                </h1>
+            </div>
+            <div class="container mt-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Add New Category</h4>
+                        <form id="categoryForm" class="forms-sample">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="categoryName">Category Name</label>
+                                <input type="text" class="form-control" id="categoryName" value="{{ category.name}}">
+                            </div>
+                            <button type="button" class="btn btn-gradient-primary me-2"
+                                onclick="submitCategory()">Submit</button>
+                            <button type="reset" class="btn btn-light">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h4 class="card-title">Available Categories</h4>
+                        <div class="form-group">
+                            <label for="courseCategory">Course Category</label>
+                            <select class="form-select" id="courseCategory" required>
+                                <option value="">Select a category</option>
+                                {% for category in categories %}
+                                    <option value="{{ category.category_id }}">{{ category.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+</body>
+{% endblock content %}
